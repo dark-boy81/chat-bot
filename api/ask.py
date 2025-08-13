@@ -23,7 +23,7 @@ mongo_client = MongoClient(os.environ.get("MONGO_URI"))
 db = mongo_client["ai_chat_db"]   # نام دیتابیس
 collection = db["qa_history"]     # نام کالکشن
 
-@app.post("/")
+@app.post("/api/ask")
 async def ask_question(request: Request):
     data = await request.json()
     question = data.get("question", "")
