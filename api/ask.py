@@ -32,7 +32,7 @@ async def ask_question(request: Request):
         return {"answer": "❌ لطفاً سوال خود را وارد کنید."}
 
     try:
-        model = genai.GenerativeModel("gemini-2.0-pro")
+        model = genai.GenerativeModel("gemini-1.5-pro")
         response = model.generate_content(question)
         answer = response.text
 
