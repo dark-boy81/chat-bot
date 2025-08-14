@@ -10,7 +10,7 @@ app = FastAPI()
 # فعال کردن CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -32,7 +32,8 @@ async def ask_question(request: Request):
         return {"answer": "❌ لطفاً سوال خود را وارد کنید."}
 
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        # استفاده از مدل Gemini 2.5 Flash-Lite
+        model = genai.GenerativeModel("gemini-2.5-flash-lite")
         response = model.generate_content(question)
         answer = response.text
 
